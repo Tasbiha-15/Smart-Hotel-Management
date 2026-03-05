@@ -14,8 +14,8 @@ const DARK = '#0F172A';
 const DARK_CARD = 'rgba(15,23,42,0.92)';
 const GLASS_BG = 'rgba(255,255,255,0.04)';
 const GLASS_BDR = 'rgba(255,255,255,0.08)';
-const TEXT_MUTED = 'rgba(255,255,255,0.45)';
-const TEXT_SUBTLE = 'rgba(255,255,255,0.25)';
+const TEXT_MUTED = 'rgba(243, 240, 240, 0.71)';
+const TEXT_SUBTLE = 'rgba(255,255,255,0.50)';
 const WHITE = '#ffffff';
 
 /* ─────────────────────────────────────────────
@@ -63,14 +63,14 @@ const Logo = () => (
         <div>
             <div style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: '1rem', fontWeight: 600, letterSpacing: '0.25em',
+                fontSize: '1.2rem', fontWeight: 600, letterSpacing: '0.25em',
                 background: `linear-gradient(135deg, ${GOLD_LIGHT} 0%, ${GOLD} 50%, #A8842E 100%)`,
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text', lineHeight: 1,
             }}>GRAND RESERVE</div>
             <div style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '0.5rem', fontWeight: 400, letterSpacing: '0.3em',
+                fontSize: '0.65rem', fontWeight: 400, letterSpacing: '0.3em',
                 color: TEXT_MUTED, textTransform: 'uppercase', marginTop: '4px',
             }}>Luxury Hotel Management</div>
         </div>
@@ -94,14 +94,14 @@ const StatPill = ({ value, label, delay = 0 }) => (
     >
         <div style={{
             fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: '1.75rem', fontWeight: 700,
+            fontSize: '2rem', fontWeight: 700,
             background: `linear-gradient(135deg, ${GOLD_LIGHT}, ${GOLD})`,
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             backgroundClip: 'text', lineHeight: 1,
         }}>{value}</div>
         <div style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: '0.6rem', letterSpacing: '0.15em',
+            fontSize: '0.72rem', letterSpacing: '0.15em',
             textTransform: 'uppercase', color: TEXT_MUTED, marginTop: '4px',
         }}>{label}</div>
     </motion.div>
@@ -130,7 +130,7 @@ const LuxuryInput = ({ icon: Icon, label, type: initialType = 'text', value, onC
         <div>
             <label style={{
                 display: 'block', marginBottom: '6px',
-                fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.18em',
+                fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em',
                 textTransform: 'uppercase', color: focused ? GOLD : TEXT_MUTED,
                 transition: 'color 0.25s ease',
                 fontFamily: "'Inter', sans-serif",
@@ -164,7 +164,7 @@ const LuxuryInput = ({ icon: Icon, label, type: initialType = 'text', value, onC
                     style={{
                         flex: 1, padding: '13px 0',
                         background: 'transparent', border: 'none', outline: 'none',
-                        color: WHITE, fontSize: '0.875rem', fontFamily: "'Inter', sans-serif",
+                        color: WHITE, fontSize: '0.95rem', fontFamily: "'Inter', sans-serif",
                         letterSpacing: '0.02em',
                     }}
                 />
@@ -244,6 +244,13 @@ const Login = () => {
             <div style={{ position: 'fixed', inset: 0, zIndex: 1, background: 'rgba(15,23,42,0.72)' }} />
 
             {/* ── SPLIT LAYOUT: Hero + Form ─────────────── */}
+            {/* Full-width gold shimmer line */}
+            <div style={{
+                position: 'relative', zIndex: 2,
+                width: '100%', height: '2px',
+                background: `linear-gradient(to right, transparent, ${GOLD}, transparent)`,
+                opacity: 0.6,
+            }} />
             <div style={{ display: 'flex', flex: 1, position: 'relative', zIndex: 2 }}>
 
                 {/* ── HERO PANEL (left 60%) ─────────────────── */}
@@ -256,21 +263,12 @@ const Login = () => {
                 >
                     {/* No separate image — uses full-page background */}
 
-                    {/* Radial dark overlay for legibility */}
+                    {/* Soft overlay — matches the right-side panel tint */}
                     <div style={{
                         position: 'absolute', inset: 0,
-                        background: `
-            radial-gradient(ellipse at 70% 50%, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.92) 70%),
-            linear-gradient(to right, rgba(15,23,42,0.98) 0%, rgba(15,23,42,0.2) 100%)
-          `,
+                        background: 'transparent',
                     }} />
 
-                    {/* Subtle gold shimmer line at top */}
-                    <div style={{
-                        position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                        background: `linear-gradient(to right, transparent, ${GOLD}, transparent)`,
-                        opacity: 0.6,
-                    }} />
 
                     {/* Content */}
                     <motion.div
@@ -297,14 +295,14 @@ const Login = () => {
                             }}>
                                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: GOLD, boxShadow: `0 0 8px ${GOLD}` }} />
                                 <span style={{
-                                    fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase',
+                                    fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase',
                                     color: GOLD, fontFamily: "'Inter', sans-serif", fontWeight: 500,
                                 }}>World-Class Hospitality Platform</span>
                             </motion.div>
 
                             <motion.h1 variants={itemVariants} style={{
                                 fontFamily: "'Playfair Display', Georgia, serif",
-                                fontSize: 'clamp(2.8rem, 4vw, 4rem)', fontWeight: 600,
+                                fontSize: 'clamp(3.2rem, 4.5vw, 4.5rem)', fontWeight: 600,
                                 lineHeight: 1.1, color: WHITE,
                                 marginBottom: '24px', letterSpacing: '-0.01em',
                             }}>
@@ -319,7 +317,7 @@ const Login = () => {
 
                             <motion.p variants={itemVariants} style={{
                                 fontFamily: "'Inter', sans-serif",
-                                fontSize: '1rem', color: 'rgba(255,255,255,0.55)',
+                                fontSize: '1.1rem', color: 'rgba(255,255,255,0.55)',
                                 lineHeight: 1.75, maxWidth: '420px', marginBottom: '40px',
                             }}>
                                 Elevate every guest interaction with intelligent automation, real-time
@@ -340,7 +338,7 @@ const Login = () => {
                         }}>
                             <Shield size={14} color={GOLD} strokeWidth={1.5} />
                             <span style={{
-                                fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                                fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase',
                                 color: TEXT_MUTED, fontFamily: "'Inter', sans-serif",
                             }}>SOC 2 Certified &nbsp;·&nbsp; GDPR Compliant &nbsp;·&nbsp; ISO 27001</span>
                         </motion.div>
@@ -386,7 +384,7 @@ const Login = () => {
                             initial="hidden"
                             animate="visible"
                             style={{
-                                background: GLASS_BG,
+                                background: 'rgba(15,23,42,0.55)',
                                 backdropFilter: 'blur(20px)',
                                 WebkitBackdropFilter: 'blur(20px)',
                                 border: `1px solid ${GLASS_BDR}`,
@@ -413,7 +411,7 @@ const Login = () => {
                                             style={{
                                                 flex: 1, padding: '9px 0',
                                                 fontFamily: "'Inter', sans-serif",
-                                                fontSize: '0.78rem', fontWeight: 500, letterSpacing: '0.03em',
+                                                fontSize: '0.88rem', fontWeight: 500, letterSpacing: '0.03em',
                                                 color: active ? DARK : TEXT_MUTED,
                                                 background: active
                                                     ? `linear-gradient(135deg, ${GOLD_LIGHT} 0%, ${GOLD} 100%)`
@@ -432,14 +430,14 @@ const Login = () => {
                             <motion.div variants={itemVariants} style={{ marginBottom: '28px' }}>
                                 <h2 style={{
                                     fontFamily: "'Playfair Display', Georgia, serif",
-                                    fontSize: '1.6rem', fontWeight: 600, color: WHITE,
+                                    fontSize: '1.85rem', fontWeight: 600, color: WHITE,
                                     letterSpacing: '-0.01em', marginBottom: '6px',
                                 }}>
                                     {isLogin ? 'Welcome Back' : 'Create Account'}
                                 </h2>
                                 <p style={{
                                     fontFamily: "'Inter', sans-serif",
-                                    fontSize: '0.8rem', color: TEXT_MUTED, letterSpacing: '0.01em',
+                                    fontSize: '0.9rem', color: TEXT_MUTED, letterSpacing: '0.01em',
                                 }}>
                                     {isLogin
                                         ? 'Sign in to access your Grand Reserve dashboard'
@@ -461,7 +459,7 @@ const Login = () => {
                                             background: 'rgba(239,68,68,0.1)',
                                             border: '1px solid rgba(239,68,68,0.25)',
                                             borderRadius: '8px', padding: '10px 14px',
-                                            fontSize: '0.8rem',
+                                            fontSize: '0.9rem',
                                             fontFamily: "'Inter', sans-serif",
                                             color: '#fca5a5', letterSpacing: '0.01em',
                                         }}
@@ -509,7 +507,7 @@ const Login = () => {
                                                 <div>
                                                     <label style={{
                                                         display: 'block', marginBottom: '6px',
-                                                        fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.18em',
+                                                        fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em',
                                                         textTransform: 'uppercase', color: TEXT_MUTED,
                                                         fontFamily: "'Inter', sans-serif",
                                                     }}>Role</label>
@@ -517,11 +515,11 @@ const Login = () => {
                                                         value={role}
                                                         onChange={e => setRole(e.target.value)}
                                                         style={{
-                                                            width: '100%', padding: '13px 14px',
+                                                            width: '100%', padding: '14px 14px',
                                                             background: GLASS_BG,
                                                             border: `1px solid ${GLASS_BDR}`,
                                                             borderRadius: '10px',
-                                                            color: WHITE, fontSize: '0.875rem',
+                                                            color: WHITE, fontSize: '0.95rem',
                                                             fontFamily: "'Inter', sans-serif",
                                                             outline: 'none', cursor: 'pointer',
                                                             appearance: 'none',
@@ -576,7 +574,7 @@ const Login = () => {
                                     {isLogin && (
                                         <div style={{ textAlign: 'right', marginTop: '-4px' }}>
                                             <a href="#" style={{
-                                                fontSize: '0.72rem', color: GOLD, opacity: 0.75,
+                                                fontSize: '0.82rem', color: GOLD, opacity: 0.75,
                                                 fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
                                                 transition: 'opacity 0.2s',
                                             }}
@@ -598,7 +596,7 @@ const Login = () => {
                                                     : `linear-gradient(135deg, ${GOLD_LIGHT} 0%, ${GOLD} 50%, #A8842E 100%)`,
                                                 border: 'none', borderRadius: '10px',
                                                 fontFamily: "'Inter', sans-serif",
-                                                fontSize: '0.82rem', fontWeight: 600,
+                                                fontSize: '0.92rem', fontWeight: 600,
                                                 letterSpacing: '0.1em', textTransform: 'uppercase',
                                                 color: loadingLocal ? 'rgba(15,23,42,0.6)' : DARK,
                                                 cursor: loadingLocal ? 'not-allowed' : 'pointer',
@@ -631,7 +629,7 @@ const Login = () => {
                                     {/* Toggle */}
                                     <motion.div variants={itemVariants} style={{ textAlign: 'center', paddingTop: '4px' }}>
                                         <span style={{
-                                            fontSize: '0.75rem', color: TEXT_MUTED,
+                                            fontSize: '0.85rem', color: TEXT_MUTED,
                                             fontFamily: "'Inter', sans-serif",
                                         }}>
                                             {isLogin ? "Don't have an account? " : "Already have an account? "}
@@ -641,7 +639,7 @@ const Login = () => {
                                             onClick={toggleAuthMode}
                                             style={{
                                                 background: 'none', border: 'none', padding: 0,
-                                                fontSize: '0.75rem', fontWeight: 600,
+                                                fontSize: '0.85rem', fontWeight: 600,
                                                 fontFamily: "'Inter', sans-serif",
                                                 color: GOLD, cursor: 'pointer', letterSpacing: '0.02em',
                                                 transition: 'opacity 0.2s',
@@ -783,6 +781,24 @@ const Login = () => {
                         letterSpacing: '0.08em',
                     }}>
                         SOC 2 &nbsp;·&nbsp; GDPR &nbsp;·&nbsp; ISO 27001
+                    </span>
+                </div>
+
+                {/* ── Built with love ── */}
+                <div style={{
+                    borderTop: `1px solid ${GLASS_BDR}`,
+                    padding: '18px 0',
+                    textAlign: 'center',
+                }}>
+                    <span style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '0.78rem', fontWeight: 600,
+                        letterSpacing: '0.2em', textTransform: 'uppercase',
+                        color: TEXT_SUBTLE,
+                    }}>
+                        BUILT WITH{' '}
+                        <span style={{ color: '#E8698D', fontSize: '1rem', verticalAlign: 'middle' }}>♥</span>
+                        {' '}BY TASBIHA
                     </span>
                 </div>
             </motion.footer>
