@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #C6A75E;
+  /* muted gold */
+  --primary-hover: #b39550;
+  --secondary-color: #f8fafc;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --bg-color: #0F172A;
+  /* dark slate */
+  --white: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  /* very soft shadows */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base styles */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem;
+}
